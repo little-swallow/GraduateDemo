@@ -25,7 +25,7 @@
 		<a href="#" class="close" data-dismiss="alert">
 		&times;
 		</a>
-		<strong id="showtip">测试测绘手册</strong>
+		<strong id="showtip"></strong>
 	</div>
 	<div class="container selfdiv" style="width: 700px;">
 		<div class="headpart">

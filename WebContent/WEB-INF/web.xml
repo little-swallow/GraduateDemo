@@ -193,12 +193,20 @@
     <servlet-name>ChecknameServlet</servlet-name>
     <url-pattern>/com/demo/controller/ChecknameServlet</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>ChangePwdServlet</servlet-name>
     <servlet-class>com.demo.controller.ChangePwdServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ChangePwdServlet</servlet-name>
     <url-pattern>/com/demo/controller/ChangePwdServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AdloginServlet</servlet-name>
+    <servlet-class>com.demo.controller.AdloginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdloginServlet</servlet-name>
+    <url-pattern>/com/demo/controller/AdloginServlet</url-pattern>
   </servlet-mapping>
 </web-app>

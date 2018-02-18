@@ -19,9 +19,10 @@
 				<div class="projectname">
 					资源共享管理平台
 				</div>
+				<%  String name = (String)session.getAttribute("Adminname"); %>
           		<div class="navbar-right row" id="uloginstate" style="display:block;width: 300px;">
-            		<a class="col-md-9" href="login.jsp" target="_top" style="color: #9d9d9d;text-align:right;margin-top:20px">登录</a>
-            		<a class="col-md-3" href="#" style="color: #9d9d9d;margin-top:20px">帮助</a>
+            		<a class="col-md-9" href="login.jsp" target="_top" style="color: #9d9d9d;text-align:right;margin-top:20px">你好：</a>
+            		<a class="col-md-3" href="#" style="color: #9d9d9d;margin-top:20px" text ="1234"></a>
             	</div>
         	</div>
 		</div>
