@@ -1,5 +1,4 @@
 $(function(){
-	//<input type="text" class="form-control" id="passinfo" name="passinfo" value=<%= userbean.getPwd()%>>
 		$("#nameinfo").blur(function() {
 			var name = $("#nameinfo").val();
 			if(name != null && name != ''){
@@ -28,6 +27,10 @@ $(function(){
 						$("#save").attr("disabled",false);
 					
 					}
+					else if(result == "same"){
+						$("#checklable").html(""); 
+						$("#save").attr("disabled",false);
+					}
 				},
 				error:function(){
 					console.log("检查用户是否存在发生错误");
@@ -35,7 +38,8 @@ $(function(){
 			});
 		};
 		$("#passinfo").on('click',function(){
-			$('#changpwd').modal('show');
+			$("#changpwd").modal('show');
+			$("#pwdform")[0].reset();
 		});
 		$("#savepwd").on('click',function(){
 			var pwd = $("#pwdnew").val();
@@ -73,8 +77,22 @@ $(function(){
 					console.log("修改发生错误");
 				}
 			});
-		};
+		};		
 		$("#save").on('click',function(){
+			$('#updateinfo').validate({
+				rules: {
+					nameinfo: {
+						required: true
+					},
+					emailinfo: {
+						required: true,
+						email: true
+					},
+					phoneinfo:{
+						required: true,
+					}
+				}
+			});
 			var name = $("#nameinfo").val();
 			var email = $("#emailinfo").val();
 			var phone = $("#phoneinfo").val();
@@ -105,4 +123,8 @@ $(function(){
 				}
 			})
 		});
+		$("#close").on('click',function(){
+			$("#show").css('display','none');
+		})
+		
 })

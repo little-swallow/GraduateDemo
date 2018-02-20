@@ -81,8 +81,18 @@
     line-height: 18px;
     text-decoration: none;
 }
+#login .error{
+	color: #a94442;
+	float: right;
+    padding-top: 10px;
+    margin-right: -100px;
+}
 /* login end */
 /*register begin*/
+#register .error{
+	color: #a94442;
+	float: right;
+}
 .checkfail{
 	float: right;
     margin-top: 40px;
@@ -139,6 +149,9 @@
 .labelsuccess{
 	float: right;
     color: #3c763d;
+}
+#updateinfo .error{
+	color: #a94442;
 }
 /*self end*/
 /*home start*/

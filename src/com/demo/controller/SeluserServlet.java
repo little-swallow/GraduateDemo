@@ -1,6 +1,7 @@
 package com.demo.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -33,17 +34,29 @@ public class SeluserServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		UserDao userDao = new UserDao();
-		ArrayList<UserBean> userBeans = new ArrayList<UserBean>();
-		try {
-			userBeans = userDao.selectalluser();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		HttpSession session = request.getSession();
-		session.setAttribute("alluser", userBeans); 
-		response.sendRedirect("../../../view/admin/muser.jsp"); 
+		String name = (String) session.getAttribute("Adminname");
+		if(name == null) {
+//			response.sendRedirect("../../../view/admin/adlogin.jsp");
+			PrintWriter out = response.getWriter();  
+		    out.println("<html>");      
+		    out.println("<script>");      
+		    out.println("window.open ('"+request.getContextPath()+"/view/admin/adlogin.jsp','_top')");      
+		    out.println("</script>");      
+		    out.println("</html>");    
+		}
+		else {
+			UserDao userDao = new UserDao();
+			ArrayList<UserBean> userBeans = new ArrayList<UserBean>();
+			try {
+				userBeans = userDao.selectalluser();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			session.setAttribute("alluser", userBeans); 
+			response.sendRedirect("../../../view/admin/muser.jsp"); 
+		}
 	}
 
 	/**

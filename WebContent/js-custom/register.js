@@ -1,9 +1,50 @@
 $(function(){
+		$("#register").validate({
+			rules:{
+				rname:{
+					required: true
+				},
+				rpwd:{
+					required: true
+				},
+				remail:{
+					required: true,
+					email: true
+				},
+				rphone:{
+					required: true
+				}
+			},
+			messages: {
+				rname: {
+				   required: "请输入用户名"
+				},
+				rpwd:{
+					required: "请输入密码"
+				},
+				remail:{
+					required: "请输入邮箱",
+					email: "请输入有效的电子邮件地址"
+				},
+				rphone:{
+					required: "请输入联系方式"
+				}
+			}
+		})
+		$("#rname").focus(function(){
+			$("#checkname").html(""); 
+			$("#reg").attr("disabled",false);
+			$("#reg").css("background","#0096e6");
+		})
 		$("#rname").blur(function() {
 			var name = $("#rname").val();
 			if(name != null && name != ''){
 				var senddata = {username: name};  
 			  	checkName(senddata);
+			}else{
+				$("#checkname").html(""); 
+				$("#reg").attr("disabled",false);
+				$("#reg").css("background","#0096e6");
 			}
 		});
 		function checkName(senddata){

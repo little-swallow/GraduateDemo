@@ -1,6 +1,8 @@
 package com.demo.bean;
 
-public class AdminBean {
+import java.io.Serializable;
+
+public class AdminBean implements Serializable{
 	private int adid;
 	private String adname;
 	private String adpass;

@@ -1,6 +1,8 @@
 package com.demo.bean;
 
-public class CommentBean {
+import java.io.Serializable;
+
+public class CommentBean implements Serializable{
 	private int scid;
 	private String scont;
 	private String sctime;

@@ -9,6 +9,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <filter>
+     <filter-name>LoginFilter</filter-name>
+     <filter-class>com.demo.filter.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+     <filter-name>LoginFilter</filter-name>
+     <url-pattern>/com/demo/controller/DetailServlet</url-pattern>
+  </filter-mapping>
   <servlet>
     <servlet-name>CommentServlet</servlet-name>
     <servlet-class>com.demo.controller.CommentServlet</servlet-class>
@@ -209,4 +217,5 @@
     <servlet-name>AdloginServlet</servlet-name>
     <url-pattern>/com/demo/controller/AdloginServlet</url-pattern>
   </servlet-mapping>
+	  
 </web-app>

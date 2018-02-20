@@ -42,6 +42,7 @@
 					<c:forEach items="${allsource}" var="item">
 						<c:url value="../../com/demo/controller/MsourceServlet" var="url">  
             				<c:param name="oldname" value="${item.suname}"></c:param>  
+            				<c:param name="fileid" value="${item.sid}"></c:param> 
         				</c:url>
 	 					<tr>
 	 						<td>${item.sid}</td>

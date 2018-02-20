@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 <link type="text/css" href="../css-import/bootstrap.min.css" rel="stylesheet">
 <link type="text/css" href="../css-custom/theme.css" rel="stylesheet">
-<script type="text/javascript" src="../js-custom/register.js"></script>
 <style>
 	body{
 		font-family: "微软雅黑";
@@ -18,6 +17,9 @@
 </style>
 <script type="text/javascript" src="../js-import/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="../js-import/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js-import/jquery.validate.min.js"></script>
+<script type="text/javascript" src="../js-import/additional-methods.min.js"></script>
+<script type="text/javascript" src="../js-custom/register.js"></script>
 </head>
 <body>
 	<div class="loginbox" id="registerbox">
@@ -28,25 +30,25 @@
 			<strong id="tooltip1"></strong>
 		</div>
 		<h3>欢迎注册</h3>
-		<form action="../com/demo/controller/RegisterServlet" method="post" >
+		<form action="../com/demo/controller/RegisterServlet" method="post" id="register">
 			<label>用户名：</label>
 			<label id="checkname" class="check"></label>
 			<div class="input_div">
-				<input name="rname" id="rname" class="text" style="color: #FFFFFF !important" type="text" required="required">
+				<input name="rname" id="rname" class="text" style="color: #FFFFFF !important" type="text" >
 			</div>
 			<label>密码：</label>
 			<div class="input_div">
-				<input name="rpwd" id="rpwd" class="text" style="color: #FFFFFF !important" type="password" required="required">
+				<input name="rpwd" id="rpwd" class="text" style="color: #FFFFFF !important" type="password">
 			</div>
 			<label>邮箱地址：</label>
 			<div class="input_div">
-				<input name="remail" id="remail" class="text" style="color: #FFFFFF !important" type="text" required="required">
+				<input name="remail" id="remail" class="text" style="color: #FFFFFF !important" type="email">
 			</div>
 			<label>联系方式：</label>
 			<div class="input_div">
-				<input name="rphone" id="rphone" class="text" style="color: #FFFFFF !important" type="text" required="required">
+				<input name="rphone" id="rphone" class="text" style="color: #FFFFFF !important" type="text">
 			</div>
-			<div style="margin-bottom: 20px">
+			<div style="margin-bottom: 20px;margin-top:45px">
 				<button type="submit" id="reg" value="注册" class="act-but submit"style="color: #FFFFFF;text-decoration: none;outline: none;">注册</button>
 			</div> 
 		</form>

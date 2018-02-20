@@ -17,7 +17,9 @@
 </style>
 <script type="text/javascript" src="../js-import/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="../js-import/bootstrap.min.js"></script>
-
+<script type="text/javascript" src="../js-import/jquery.validate.min.js"></script>
+<script type="text/javascript" src="../js-import/additional-methods.min.js"></script>
+<script type="text/javascript" src="../js-custom/login.js"></script>
 </head>
 <body>
 	<div class="loginbox" id="loginbox" style="display:block">
@@ -28,10 +30,14 @@
 			<strong id="tooltip"></strong>
 		</div>
 		<h3>欢迎登录</h3>
-		<form action="../com/demo/controller/LoginServlet" method="post" >
+		<form action="../com/demo/controller/LoginServlet" method="post" id="login">
+		<!--  <div class="input_div">
+				<input name="logname" id="logname" class="text" onfocus=" if(this.value=='输入用户名登录') this.value=''" onblur="if(this.value=='') this.value='输入用户名登录'" value="输入用户名登录" style="color: #FFFFFF !important" type="text"/>
+			</div>-->
 			<div class="input_div">
-				<input name="logname" id="logname" class="text" onfocus=" if(this.value=='输入用户名登录') this.value=''" onblur="if(this.value=='') this.value='输入用户名登录'" value="输入用户名登录" style="color: #FFFFFF !important" type="text" required="required"/>
-			</div>
+				<label class="l-login login_name" style="color: rgb(255, 255, 255);display: block;">输入用户名登录</label>
+				<input name="logname" id="logname" class="text" style="color: #FFFFFF !important; position:absolute; z-index:100;" onfocus="$('.login_name').hide()" onblur="if(this.value=='') $('.login_name').show()" value="" type="text" />
+			</div>	
 			<div class="input_div">
 				<label class="l-login login_password" style="color: rgb(255, 255, 255);display: block;">输入密码</label>
 				<input name="logpass" id="logpass" class="text" style="color: #FFFFFF !important; position:absolute; z-index:100;" onfocus="$('.login_password').hide()" onblur="if(this.value=='') $('.login_password').show()" value="" type="password" />

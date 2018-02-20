@@ -19,12 +19,11 @@
 <script type="text/javascript" src="../js-import/bootstrap.min.js"></script>
 <script type="text/javascript" src="../js-import/bootstrap.js"></script>
 <script type="text/javascript" src="../js-custom/selfinfo.js"></script>
+<script type="text/javascript" src="../js-import/jquery.validate.min.js"></script>
 </head>
 <body>
 	<div class="alert alert-success" id="show" style="display:none;width:300px;margin: 10px 0px -50px 350px;">
-		<a href="#" class="close" data-dismiss="alert">
-		&times;
-		</a>
+		<button type="button" class="close" aria-hidden="true" id="close">&times;</button>
 		<strong id="showtip"></strong>
 	</div>
 	<div class="container selfdiv" style="width: 700px;">
@@ -32,7 +31,7 @@
 			<h4 style="text-align:center;margin-top:10px">个人信息</h4>
 		</div>
 		<div class="bodypart" style="margin-top:20px">
-			<form action="../com/demo/controller/UpdateinfoServlet" method="post">
+			<form action="../com/demo/controller/UpdateinfoServlet" method="post" id="updateinfo">
 				 <% UserBean userbean = (UserBean)session.getAttribute("Userinfo"); %>
 				<div class="form-group infoform">
     				<label for="nameinfo">用户名</label>
@@ -66,7 +65,7 @@
                	 	<h4 class="modal-title" id="myModalLabel">修改密码</h4>
             	</div>
             	<div class="modal-body" style="border:none;text-align:center">
-            		<form>
+            		<form id="pwdform">
             			<div class="form-group infoform">
     						<label for="pwdnew" style="float:left">新密码</label>
     						<input type="password" class="form-control" id="pwdnew" name="pwdnew">
@@ -77,7 +76,7 @@
     						<input type="password" class="form-control" id="pwdagain" name="pwdagain">
   						</div>
   						<div class="form-group infoform" style="margin-bottom: 65px;">
-      						<button type="button" class="btn btn-default" style="float:left"><a class="cancel" href="selfinfo.jsp" target="right" style="color:black">取消</a></button>
+      						<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true" style="float:left">取消</button>
       						<button type="button" class="btn btn-primary" id="savepwd" style="float:right">确认修改</button>
   						</div>	
             		</form>	

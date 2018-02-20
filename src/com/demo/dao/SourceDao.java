@@ -189,6 +189,18 @@ public class SourceDao {
 		return false;
 	}
 	
+	public boolean deletecom(int id) throws Exception{
+		Connection conn = dBconnection.getConn();
+		String sql = "delete from com_table where Sid= ?";
+		PreparedStatement prest = dBconnection.getprep(conn, sql);	
+		prest.setInt(1, id);
+		int i = prest.executeUpdate();
+		if(i>0){
+			return true;
+		}
+		return false;
+	}
+	
 	public ArrayList<SourceBean> searchsource(String search) throws Exception{
 		ArrayList<SourceBean> Sourceinfo = new ArrayList<SourceBean>();
 		Connection connection  = dBconnection.getConn();

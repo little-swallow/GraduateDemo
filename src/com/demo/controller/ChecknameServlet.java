@@ -6,7 +6,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.demo.bean.UserBean;
 import com.demo.dao.UserDao;
 
 /**
@@ -38,20 +40,49 @@ public class ChecknameServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setCharacterEncoding("utf-8"); 
-		String name = request.getParameter("username"); 
-		UserDao userDao = new UserDao();
-		boolean flag = false;
-		try {
-			flag = userDao.checkname(name);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		if(flag) {
-			response.getWriter().write("no"); 
+		String name = request.getParameter("username");
+		name = name.trim();
+		HttpSession session = request.getSession();
+		String cid = (String)session.getAttribute("Suserid");
+		if(cid == null) { 
+			UserDao userDao = new UserDao();
+			boolean flag = false;
+			try {
+				flag = userDao.checkname(name);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if(flag) {
+				response.getWriter().write("no"); 
+			}else {
+				response.getWriter().write("yes"); 
+			}
 		}else {
-			response.getWriter().write("yes"); 
+			UserBean user = (UserBean) session.getAttribute("Userinfo");
+			String oldname = user.getName();
+			oldname = oldname.trim();
+//			System.out.println(name);
+//			System.out.println(oldname);
+			if(name.equals(oldname)) {
+//				System.out.println("yes");
+				response.getWriter().write("same");
+			}else {
+//				System.out.println("no");
+				UserDao userDao = new UserDao();
+				boolean flag = false;
+				try {
+					flag = userDao.checkname(name);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				if(flag) {
+					response.getWriter().write("no"); 
+				}else {
+					response.getWriter().write("yes"); 
+				}
+			}
 		}
 	}
-
 }

@@ -34,6 +34,7 @@ public class SelsouServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession session = request.getSession();
 		SourceDao sourceDao = new SourceDao();
 		ArrayList<SourceBean> sourceBeans = new ArrayList<SourceBean>();
 		try {
@@ -42,9 +43,8 @@ public class SelsouServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		HttpSession session = request.getSession();
 		session.setAttribute("allsource", sourceBeans);
-		response.sendRedirect("../../../view/admin/msource.jsp");
+		response.sendRedirect("../../../view/admin/msource.jsp");	
 	}
 
 	/**

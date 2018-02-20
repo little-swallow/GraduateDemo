@@ -1,6 +1,8 @@
 package com.demo.bean;
 
-public class UserBean {
+import java.io.Serializable;
+
+public class UserBean implements Serializable{
 	private String name;
 	private String pwd;
 	private String email;

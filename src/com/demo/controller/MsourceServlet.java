@@ -31,7 +31,10 @@ public class MsourceServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String filename = request.getParameter("oldname");
+		String fileid = request.getParameter("fileid");
 		System.out.println(filename);
+		System.out.println(fileid);
+		int sid = Integer.parseInt(fileid);
 		filename = new String(filename.getBytes("ISO-8859-1"),"UTF-8");
         System.out.println(filename);   
         String storeDirectory = getServletContext().getRealPath("/WEB-INF/files");  
@@ -54,7 +57,19 @@ public class MsourceServlet extends HttpServlet {
 				}
         		if(tag) {
         			System.out.println("成功");
-            		response.sendRedirect("SelsouServlet");
+        			boolean b = false;
+        			try {
+						b = sourceDao.deletecom(sid);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+        			if(b) {
+        				response.sendRedirect("SelsouServlet");
+        			}else {
+        				System.out.println("数据库删除评论操作失败");
+        			}
+            		
         		}else {
             		System.out.println("数据库操作失败");
         		}

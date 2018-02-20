@@ -1,6 +1,8 @@
 package com.demo.bean;
 
-public class SourceBean {
+import java.io.Serializable;
+
+public class SourceBean implements Serializable{
 	private int sid;
 	private String sname;
 	private String suname;
