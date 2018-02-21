@@ -15,15 +15,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet Filter implementation class LoginFilter
+ * Servlet Filter implementation class AdloginFilter
  */
-@WebFilter("/LoginFilter")
-public class LoginFilter implements Filter {
+@WebFilter("/AdloginFilter")
+public class AdloginFilter implements Filter {
 
     /**
      * Default constructor. 
      */
-    public LoginFilter() {
+    public AdloginFilter() {
         // TODO Auto-generated constructor stub
     }
 
@@ -39,26 +39,22 @@ public class LoginFilter implements Filter {
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
+		// place your code here
+
+		// pass the request along the filter chain
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
 		HttpSession session = req.getSession();
-		System.out.println("1");
-		if (session.getAttribute("Suserid") != null) {
-			System.out.println("2");
+		if (session.getAttribute("Adminname") != null) {
 	        chain.doFilter(request, response);
 	    } else {
-	    	System.out.println("3");
 	    	PrintWriter out = response.getWriter();  
 		    out.println("<html>");      
 		    out.println("<script>");      
-		    out.println("window.open ('"+req.getContextPath()+"/view/login.jsp','_top')");      
+		    out.println("window.open ('"+req.getContextPath()+"/view/admin/adlogin.jsp','_top')");      
 		    out.println("</script>");      
 		    out.println("</html>");  
 	    }
-
-
-		// pass the request along the filter chain
-//		chain.doFilter(request, response);
 	}
 
 	/**

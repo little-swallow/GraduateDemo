@@ -62,7 +62,7 @@ public class LoginServlet extends HttpServlet {
 		}else {
 			session.setAttribute("Userid",id);
 			String id1 = Integer.toString(id);
-			session.setAttribute("Suserid", id1);
+			session.setAttribute("Suserid",id1);
 			response.sendRedirect("../../../view/main.jsp");
 		}
 	}

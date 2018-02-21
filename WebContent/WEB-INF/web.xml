@@ -10,12 +10,36 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <filter>
-     <filter-name>LoginFilter</filter-name>
-     <filter-class>com.demo.filter.LoginFilter</filter-class>
+    <filter-name>LoginFilter</filter-name>
+    <filter-class>com.demo.filter.LoginFilter</filter-class>
   </filter>
   <filter-mapping>
-     <filter-name>LoginFilter</filter-name>
-     <url-pattern>/com/demo/controller/DetailServlet</url-pattern>
+    <filter-name>LoginFilter</filter-name>
+    <url-pattern>/com/demo/controller/DetailServlet</url-pattern>
+    <url-pattern>/com/demo/controller/DownLoadServlet</url-pattern>
+    <url-pattern>/com/demo/controller/CommentServlet</url-pattern>
+    <url-pattern>/com/demo/controller/DelComServlet</url-pattern>
+    <url-pattern>/com/demo/controller/MysourceServlet</url-pattern>
+    <url-pattern>/com/demo/controller/SelfinfoServlet</url-pattern>
+    <url-pattern>/com/demo/controller/UpdateinfoServlet</url-pattern>
+    <url-pattern>/com/demo/controller/ChangePwdServlet</url-pattern>
+    <url-pattern>/com/demo/controller/DeleteServlet</url-pattern>
+    <url-pattern>/com/demo/controller/UploadServlet</url-pattern>
+    <url-pattern>/com/demo/controller/SelectcomServlet</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+    <filter-name>AdloginFilter</filter-name>
+    <filter-class>com.demo.filter.AdloginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>AdloginFilter</filter-name>
+    <url-pattern>/com/demo/controller/SeluserServlet</url-pattern>
+    <url-pattern>/com/demo/controller/SelsouServlet</url-pattern>
+    <url-pattern>/com/demo/controller/SelcomServlet</url-pattern>
+    <url-pattern>/com/demo/controller/McomServlet</url-pattern>
+    <url-pattern>/com/demo/controller/MsourceServlet</url-pattern>
+    <url-pattern>/com/demo/controller/MuserServlet</url-pattern>
   </filter-mapping>
   <servlet>
     <servlet-name>CommentServlet</servlet-name>
@@ -217,5 +241,4 @@
     <servlet-name>AdloginServlet</servlet-name>
     <url-pattern>/com/demo/controller/AdloginServlet</url-pattern>
   </servlet-mapping>
-	  
 </web-app>
