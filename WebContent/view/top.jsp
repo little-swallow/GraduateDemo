@@ -25,7 +25,7 @@
             	</div>
             	<div class="navbar-right row" id="loginstate" style="display:none;width: 300px;">
             		<a class="col-md-4" href="../com/demo/controller/MysourceServlet" target="right" style="color: #9d9d9d;float:left;margin-top:20px">我的资源</a>
-            		<a class="col-md-4" href="../com/demo/controller/CupsourceServlet" target="right" style="color: #9d9d9d;float:left;margin-top:20px">上传资源</a>
+            		<a class="col-md-4" href="uploadfile.jsp" target="right" style="color: #9d9d9d;float:left;margin-top:20px">上传资源</a>
             		<a class="col-md-4" href="../com/demo/controller/SelfinfoServlet" target="right" style="color: #9d9d9d;float:right;margin-top:20px">个人中心</a>
             	</div>
           		<form class="navbar-form navbar-right" style="margin-right:130px;margin-top:13px;" action="../com/demo/controller/SearchServlet" method="post" target="right">

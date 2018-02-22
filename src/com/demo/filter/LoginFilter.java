@@ -42,12 +42,12 @@ public class LoginFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
 		HttpSession session = req.getSession();
-		System.out.println("1");
+//		System.out.println("1");
 		if (session.getAttribute("Suserid") != null) {
-			System.out.println("2");
+//			System.out.println("2");
 	        chain.doFilter(request, response);
 	    } else {
-	    	System.out.println("3");
+//	    	System.out.println("3");
 	    	PrintWriter out = response.getWriter();  
 		    out.println("<html>");      
 		    out.println("<script>");      

@@ -46,7 +46,6 @@ public class ChangePwdServlet extends HttpServlet {
 		UserBean userBean = new UserBean();
 		userBean.setCid(cid);
 		userBean.setPwd(pwd);
-//		System.out.println(pwd);
 		UserDao userDao = new UserDao();
 		boolean flag = false;
 		try {

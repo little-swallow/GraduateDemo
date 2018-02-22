@@ -36,7 +36,7 @@
 			</c:forEach> 
 	  	</ul>
 	</div>
-	<div class="modal fade" id="logModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- 	<div class="modal fade" id="logModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
    		<div class="modal-dialog">
         	<div class="modal-content">
             	<div class="modal-header" >
@@ -49,8 +49,9 @@
             	</div>
         	</div>
     	</div>
-	</div>
+	</div> -->
 </body>
+<!-- 
 <script type="text/javascript">
 	$(function(){
 		var msg ='<%=request.getParameter("login")%>';
@@ -58,5 +59,5 @@
 			$('#logModal').modal('show');
 		}
 	})
-</script>
+</script> -->
 </html>

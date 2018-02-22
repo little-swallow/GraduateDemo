@@ -79,20 +79,20 @@ $(function(){
 			});
 		};		
 		$("#save").on('click',function(){
-			$('#updateinfo').validate({
-				rules: {
-					nameinfo: {
-						required: true
-					},
-					emailinfo: {
-						required: true,
-						email: true
-					},
-					phoneinfo:{
-						required: true,
-					}
-				}
-			});
+//			$('#updateinfo').validate({
+//				rules: {
+//					nameinfo: {
+//						required: true
+//					},
+//					emailinfo: {
+//						required: true,
+//						email: true
+//					},
+//					phoneinfo:{
+//						required: true,
+//					}
+//				}
+//			});
 			var name = $("#nameinfo").val();
 			var email = $("#emailinfo").val();
 			var phone = $("#phoneinfo").val();
