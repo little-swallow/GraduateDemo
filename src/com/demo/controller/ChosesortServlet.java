@@ -14,16 +14,16 @@ import com.demo.bean.SourceBean;
 import com.demo.dao.SourceDao;
 
 /**
- * Servlet implementation class SelectbysortServlet
+ * Servlet implementation class ChosesortServlet
  */
-@WebServlet("/SelectbysortServlet")
-public class SelectbysortServlet extends HttpServlet {
+@WebServlet("/ChosesortServlet")
+public class ChosesortServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectbysortServlet() {
+    public ChosesortServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,31 +34,50 @@ public class SelectbysortServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
-		String sort = request.getParameter("sort");
+		String by = request.getParameter("by");
 		HttpSession session = request.getSession();
+		String sort = (String) session.getAttribute("sort");
 		SourceDao sourceDao = new SourceDao();
 		ArrayList<SourceBean> sourceinfo = new ArrayList<SourceBean>();
-		if(sort.equals("null")) {
-//			System.out.println("wo shi ce shi");
-			try {
-				sourceinfo = sourceDao.selectsource();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		if (by.equals("time")) {
+//			System.out.println(sort);
+			if(sort.equals("null")) {
+				try {
+					sourceinfo = sourceDao.selectsourcebytime();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			else {
+				try {
+					sourceinfo = sourceDao.selectbysortandtime(sort);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}else if (by.equals("look")) {
+			if(sort.equals("null")) {
+				try {
+					sourceinfo = sourceDao.selectsource();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			else {
+				try {
+					sourceinfo = sourceDao.selectbysort(sort);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 			
-		}else {
-			sort = new String(sort.getBytes("ISO-8859-1"),"UTF-8");
-			try {
-				sourceinfo = sourceDao.selectbysort(sort);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}	
 		}
-		session.setAttribute("sort", sort);
 		session.setAttribute("info", sourceinfo); 
-		response.sendRedirect("../../../view/home.jsp"); 
+		response.sendRedirect("../../../view/home.jsp");
 	}
 
 	/**

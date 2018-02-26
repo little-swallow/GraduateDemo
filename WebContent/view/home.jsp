@@ -16,6 +16,11 @@
 </head>
 <body style="background-color:#f4f4f4">
 	<div class="container-fluid">
+		<div class="row" style="margin-top:10px;border-bottom: 1px solid #eee;">
+			<div class="col-md-2" style="margin-bottom:10px"><a href="../com/demo/controller/ChosesortServlet?by=time" style="font-weight:bold">按时间排序</a></div>
+			<div class="col-md-2" style="margin-bottom:10px"><a href="../com/demo/controller/ChosesortServlet?by=look" style="font-weight:bold;margin-left: -90px;">按浏览量排序</a></div>
+			<div class="col-md-8"></div>
+		</div>
 	 	<ul class="showlist" id="showlist"> 
 	 	 	<c:forEach items="${info}" var="item"> 
         	  	<c:url value="../com/demo/controller/DetailServlet" var="url">  

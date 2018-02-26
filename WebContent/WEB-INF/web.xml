@@ -22,7 +22,6 @@
     <url-pattern>/com/demo/controller/UploadServlet</url-pattern>
     <url-pattern>/com/demo/controller/SelectcomServlet</url-pattern>
   </filter-mapping>
-  
   <filter>
     <filter-name>AdloginFilter</filter-name>
     <filter-class>com.demo.filter.AdloginFilter</filter-class>
@@ -91,14 +90,6 @@
   <servlet-mapping>
     <servlet-name>UploadServlet</servlet-name>
     <url-pattern>/com/demo/controller/UploadServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>SelectmainServlet</servlet-name>
-    <servlet-class>com.demo.controller.SelectmainServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>SelectmainServlet</servlet-name>
-    <url-pattern>/com/demo/controller/SelectmainServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>DetailServlet</servlet-name>
@@ -227,5 +218,13 @@
   <servlet-mapping>
     <servlet-name>AdloginServlet</servlet-name>
     <url-pattern>/com/demo/controller/AdloginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ChosesortServlet</servlet-name>
+    <servlet-class>com.demo.controller.ChosesortServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ChosesortServlet</servlet-name>
+    <url-pattern>/com/demo/controller/ChosesortServlet</url-pattern>
   </servlet-mapping>
 </web-app>

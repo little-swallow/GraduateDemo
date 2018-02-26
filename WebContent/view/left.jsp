@@ -17,7 +17,7 @@
 	<div class="container-fluid">
 		<div class="sidebar" style="width:191px">
 			<ul class="nav nav-sidebar">
-            	<li style="padding-right: 50px;padding-left:20px"><a href="../com/demo/controller/SelectmainServlet" target="right">推荐</a></li>
+            	<li style="padding-right: 50px;padding-left:20px"><a href="../com/demo/controller/SelectbysortServlet?sort=null" target="right">推荐</a></li>
             	<li style="padding-right: 50px;padding-left:20px"><a href="../com/demo/controller/SelectbysortServlet?sort=电子科技" target="right">电子科技</a></li>
             	<li style="padding-right: 50px;padding-left:20px"><a href="../com/demo/controller/SelectbysortServlet?sort=金融" target="right">金融</a></li>
             	<li style="padding-right: 50px;padding-left:20px"><a href="../com/demo/controller/SelectbysortServlet?sort=文学历史" target="right">文学历史</a></li>

@@ -11,11 +11,11 @@
 <script type="text/javascript" src="../js-import/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="../js-import/bootstrap.min.js"></script>
 </head>
-<frameset rows="10%,90%" border="1">
+<frameset rows="10%,90%" framespacing="0"frameborder="0">
 	<frame src="top.jsp" name="top" noresize="noresize"/>
-		<frameset cols="15%,85%" border="1">
+		<frameset cols="15%,85%" framespacing="0"frameborder="0">
 			<frame src="left.jsp" name="left" noresize="noresize"/>
-		 	<frame src="../com/demo/controller/SelectmainServlet" name="right" noresize="noresize"/>
+		 	<frame src="../com/demo/controller/SelectbysortServlet?sort=null" name="right" noresize="noresize"/>
 		</frameset>
 </frameset>
 </html>
