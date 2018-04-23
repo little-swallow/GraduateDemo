@@ -1,17 +1,17 @@
 $(function(){
-		$("#register").validate({
+		$("#register").validate({	// 该功能为用户注册时的表单验证
 			rules:{
-				rname:{
+				rname:{			//验证用户名
 					required: true
 				},
-				rpwd:{
+				rpwd:{			//验证密码
 					required: true
 				},
-				remail:{
+				remail:{		//验证邮箱
 					required: true,
 					email: true
 				},
-				rphone:{
+				rphone:{		//验证手机
 					required: true
 				}
 			},
@@ -47,21 +47,22 @@ $(function(){
 				$("#reg").css("background","#0096e6");
 			}
 		});
-		function checkName(senddata){
-			$.ajax({
-				url:"http://localhost:8080/GraduateDemo/com/demo/controller/ChecknameServlet",
+		function checkName(senddata){			//该功能为检测用户名是否已经存在
+			$.ajax({							//使用ajax传递表单数据
+				url:"http://localhost:8080/GraduateDemo/com" +
+						"/demo/controller/ChecknameServlet",
 				type:"post",
 				dataType:"html",
-				data:senddata,
-				success:function(result){
-					if(result == "no"){
+				data:senddata,					//确定传递的数据
+				success:function(result){		//对后台返回的结果进行检测
+					if(result == "no"){			//用户名存在则通知用户已存在
 						$("#checkname").html("该用户名已存在"); 	
 						$("#checkname").removeClass("checksuccess");
 						$("#checkname").addClass("checkfail");
 						$("#reg").attr("disabled",true); 
 						$("#reg").css("background","lightgray");
 					}
-					else if(result == "yes"){
+					else if(result == "yes"){	//用户名不存在则通知用户可用
 						$("#checkname").html("该用户名可用"); 
 						$("#checkname").removeClass("checkfail");
 						$("#checkname").addClass("checksuccess");

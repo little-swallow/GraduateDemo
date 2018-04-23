@@ -11,7 +11,7 @@
 	body{
 		font-family: "微软雅黑";
     	font-size: 14px;
-    	background: url(../img/bg.jpg)fixed center center; 
+    	background: url(../img/bg.bmp)fixed center center; 
     	background-size:cover;
 	}
 </style>
@@ -55,6 +55,7 @@
 	</div>
 </body>
 <script type="text/javascript">
+	//返回给用户
 	$(function(){
 		var msg ='<%=request.getParameter("error")%>';
 		if(msg == 'yes'){
@@ -63,6 +64,8 @@
 			$("#tool").css('display','block');
 		}
 		var msg ='<%=request.getParameter("success")%>';
+		//此处为注册时会使用到，注册成功后会带上error=success的参数返回到登录页面，
+		//提示用户注册成功。
 	    if(msg=="yes"){
 			$("#tooltip").text("注册成功！请登录");
 			$("#tool").addClass("alert-success");

@@ -90,18 +90,22 @@ public class UploadServlet extends HttpServlet {
         //处理请求内容  
         if(items!=null){  
             for(FileItem item:items){  
-                if(item.isFormField()){
+                if(item.isFormField()){			//此处判断表单为普通的文本区域
                 	Map<String,String> map = new HashMap<String,String>();
+                	//使用map来保存每个输入框的信息，使用key:value方式
                 	String fieldname = null;
                 	String fieldvalue = null;
-                    map = processFormField(item);						//表单文本域 
+                	//对于普通文本域使用 processFormField方法来处理
+                    map = processFormField(item);						 
                     for(Entry<String,String> entry : map.entrySet()) {
                     	fieldname = entry.getKey();
                     	fieldvalue = entry.getValue();
                     }
                     formmap.put(fieldname, fieldvalue);
-                }else{  
-                    tag = processUploadField(item);  			//表单文件域
+                    //通过循环将name和value保存起来，为了之后将值存入sourcebean
+                }else{  						//此处判断表单文件区域
+                    tag = processUploadField(item);  			
+                    //对于文件区域使用 processUploadField方法来处理
                 }  
             }  
         }  
@@ -149,7 +153,6 @@ public class UploadServlet extends HttpServlet {
             boolean flag = false;   
             //用户选择上传文件时  
             if(fileName!=null&&!fileName.equals("")){  
-//            	SourceBean sBean = new SourceBean();
             	sourceBean.setSname(fileName);
             	//通用唯一识别码
                 fileName = UUID.randomUUID().toString()+"_"+FilenameUtils.getName(fileName); 
@@ -169,7 +172,8 @@ public class UploadServlet extends HttpServlet {
                 flag = true;
                 // write方法用于将FileItem对象中保存的主体内容保存到某个指定的文件中。
                 //如果FileItem对象中的主体内容是保存在某个临时文件中，该方法顺利完成后，临时文件有可能会被清除。
-                item.write(new File(storeDirectoryPath+File.separator+fileName));  //File.separator与系统有关的默认名称分隔符
+                item.write(new File(storeDirectoryPath+File.separator+fileName));  
+                //File.separator与系统有关的默认名称分隔符
             }else {
             	 flag = false;
             }  

@@ -189,6 +189,21 @@ public class SourceDao {
 		return sourceBean; 		
 	}	
 	
+	public int selectdelid(String name) throws Exception {
+		Connection connection  = dBconnection.getConn();
+		PreparedStatement prest =  null;
+		ResultSet rs = null;
+		String sql = "select Sid from source_table where Suname=?";
+		prest = dBconnection.getprep(connection, sql);
+		prest.setString(1, name);
+		rs = prest.executeQuery();
+		int id = 0;
+		while (rs.next()) {
+			id = rs.getInt("Sid");
+		}
+		return id; 		
+	}	
+	
 	public boolean updateview(int sid,int count) throws Exception{
 		Connection connection  = dBconnection.getConn();
 		PreparedStatement prest =  null;
@@ -254,6 +269,7 @@ public class SourceDao {
 		}
 		return false;
 	}
+	
 	
 	public ArrayList<SourceBean> searchsource(String search) throws Exception{
 		ArrayList<SourceBean> Sourceinfo = new ArrayList<SourceBean>();

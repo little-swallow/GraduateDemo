@@ -60,9 +60,9 @@
   				</div>
 			</form>
 			<ul class="commentlist">
-				<c:forEach items="${commentinfo}" var="item">
-					<c:set var="uid" value="${item.uid}"/> 
-					<c:set var="logid" value="${sessionScope.Userid}"/>
+				<c:forEach items="${commentinfo}" var="item">		<!-- 循环结果 -->
+					<c:set var="uid" value="${item.uid}"/> 			<!-- 记录该条评论者-->
+					<c:set var="logid" value="${sessionScope.Userid}"/>	<!-- 记录目前登录的用户-->
 					<hr style="border-top: 2px solid #eee;width: 940px;"></hr>
 					<li>
 						<div class="row">
@@ -71,6 +71,7 @@
 						</div>
 						<div style="margin-top: 20px;">${item.scont}</div>
 						<c:if test="${uid eq logid }">
+							<!-- 若该条评论者与目前登录用户相同，显示删除-->
 							<div style="float:right;margin-bottom:10px" id="${item.uid}" >
 								<a href="../com/demo/controller/DelcomServlet">删除</a>
 							</div>

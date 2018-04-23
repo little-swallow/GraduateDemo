@@ -11,7 +11,7 @@
 	body{
 		font-family: "微软雅黑";
     	font-size: 14px;
-    	background: url(../../img/bg.jpg)fixed center center; 
+    	background: url(../../img/abg.jpg)fixed center center; 
     	background-size:cover;
 	}
 </style>

@@ -40,22 +40,36 @@ public class DeleteServlet extends HttpServlet {
         String storeDirectoryPath = storeDirectory+File.separator+childDirecotry+File.separator+filename;
         File deletefile = new File(storeDirectoryPath); 
         boolean flag = false;
+        int sid = 0;
         if(deletefile.exists()) {
         	flag = deletefile.delete();
         	if(flag) {
         		SourceDao sourceDao = new SourceDao();
         		boolean tag = false;
         		try {
+        			sid = sourceDao.selectdelid(filename);
 					tag = sourceDao.deletefile(filename);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+        		System.out.println(sid);
+        		boolean b = false;
         		if(tag) {
-            		System.out.println("成功");
-            		response.sendRedirect("MysourceServlet");
+        			try {
+						b = sourceDao.deletecom(sid);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+        			if(b) {
+                		System.out.println("成功");
+                		response.sendRedirect("MysourceServlet");
+            		}else {
+                		System.out.println("数据库评论删除失败");
+            		}
         		}else {
-            		System.out.println("数据库操作失败");
+        			System.out.println("数据库资源删除失败");	
         		}
         	}else {
         		System.out.println("失败");
